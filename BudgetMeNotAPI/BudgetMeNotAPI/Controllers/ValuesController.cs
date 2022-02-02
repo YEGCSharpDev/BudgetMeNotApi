@@ -10,9 +10,11 @@ namespace BudgetMeNotAPI.Controllers
     public class ValuesController : ApiController
     {
         // GET api/values
-        public IEnumerable<string> Get()
+        public HttpResponseMessage Get()
         {
-            return new string[] { "value1", "value2" };
+            var retvalue = new { Key1 = "value1", Key2 = "value2" };
+            HttpResponseMessage httpReturnResponse = Request.CreateResponse(HttpStatusCode.OK, retvalue);
+            return httpReturnResponse;
         }
 
         // GET api/values/5
